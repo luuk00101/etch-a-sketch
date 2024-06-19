@@ -1,5 +1,5 @@
 const gridContainer = document.querySelector("#grid-container");
-const GRID_SIZE = 960;
+const GRID_SIZE = 720;
 
 function getRandomColor() {
   const r = Math.floor(Math.random() * 256);
@@ -24,6 +24,8 @@ function createGrid(numberOfSquares) {
       gridCell.style.height = `${GRID_SIZE / numberOfSquares}px`;
       gridCell.style.boxSizing = "border-box";
       gridCell.style.border = "1px solid black";
+      gridCell.style.backgroundColor = "white";
+      gridCell.style.opacity = "1";
       rowWrapper.appendChild(gridCell);
     }
 
@@ -50,8 +52,11 @@ createGridButton.addEventListener("click", () => {
 gridContainer.addEventListener("mouseover", (event) => {
   const targetCell = event.target;
 
-  if (targetCell.classList.contains("grid-cell"))
+  if (targetCell.classList.contains("grid-cell")) {
     targetCell.style.backgroundColor = getRandomColor();
+    if (parseFloat(targetCell.style.opacity) > 0)
+      targetCell.style.opacity = parseFloat(targetCell.style.opacity) - 0.1;
+  }
 });
 
 createGrid(16);
