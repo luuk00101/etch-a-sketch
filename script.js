@@ -8,6 +8,7 @@ for (let i = 0; i < 16; i++) {
   rowWrapper.style.height = `${960 / 16}px`;
   for (let j = 0; j < 16; j++) {
     let gridCell = document.createElement("div");
+    gridCell.classList.add("grid-cell");
     gridCell.style.width = `${960 / 16}px`;
     gridCell.style.height = `${960 / 16}px`;
     gridCell.style.border = "1px solid black";
@@ -16,3 +17,10 @@ for (let i = 0; i < 16; i++) {
 
   gridContainer.appendChild(rowWrapper);
 }
+
+gridContainer.addEventListener("mouseover", (event) => {
+  const targetCell = event.target;
+
+  if (targetCell.classList.contains("grid-cell"))
+    targetCell.style.backgroundColor = "yellow";
+});
