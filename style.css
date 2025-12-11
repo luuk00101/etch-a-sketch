@@ -1,5 +1,5 @@
 body {
-  height: 100%;
+  height: 100vh;
   padding: 16px;
   margin: 0;
   display: flex;
@@ -7,13 +7,32 @@ body {
   gap: 16px;
   align-items: center;
   justify-content: center;
+  background: #fafafa;
+}
+
+#create-grid-button {
+  font-size: 16px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: white;
 }
 
 #grid-container {
-  width: 720px;
-  height: 720px;
-  border: 1px solid black;
-  background-color: black;
-  display: flex;
-  flex-direction: column;
+  width: min(92vw, 92vh);
+  aspect-ratio: 1 / 1;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #ddd;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size, 16), 1fr);
+  grid-auto-rows: 1fr;
+  gap: 1px; /* creates grid lines via container background */
+  touch-action: none; /* allow finger drawing without scrolling */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.grid-cell {
+  background: white;
 }

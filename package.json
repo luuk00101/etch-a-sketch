@@ -1,0 +1,10 @@
+{
+  "name": "etch-a-sketch-server",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "bun run server.js",
+    "dev": "bun --watch server.js"
+  },
+  "dependencies": {}
+}
+
